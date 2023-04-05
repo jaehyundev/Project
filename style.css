@@ -1,0 +1,251 @@
+/* 상단부분 컨테이너 */
+.header-container{
+  display: flex; /* Flexbox 컨테이너로 설정 */
+  align-items: center; /* 아이템을 수직 중앙에 정렬 */
+  width: 100%; /* 컨테이너의 너비를 100%로 설정 */
+  height: 270px;
+  background-color: #41D9C3;
+  
+  justify-content: center; /* 중앙 정렬 */
+  align-items: center;
+  flex-direction: column;
+  }
+  
+  /* 공백1 */
+  .space1{
+  height: 70px;
+  }
+  
+  /* 공백2 */
+  .space2{
+  height: 7px;
+  width: 100%;
+  }
+  
+  /* 제목 */
+  .fn1{ /* 쿠폰의 민족 */
+  font-size: 26px;
+  height: 80px;
+  width: 100%;
+  }
+  
+  /* 부제목 */
+  .fn2{ /* 배달앱 쿠폰 비교 서비스 */
+  font-size: 20px;
+  height: 150px;
+  width: 100%;
+  }
+  
+  .item {
+  flex-basis: 100%; /* 아이템 너비를 100%로 설정 */
+  height: 50px; /* 아이템 높이를 200px로 설정 */
+  margin-bottom: 1px; /* 아이템 간격을 1px로 설정 */
+  width: 100px;
+  }
+  
+  body{
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-align: center;
+  font-family : '배달의민족 한나체 Pro';
+  }
+  
+  /* 검색창 */
+  .search-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 80px;
+  margin-top: 10px;
+  }
+  
+  form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  input[type="text"] {
+  font-family : '배달의민족 한나체 Pro';
+  width: 220px;
+  height: 70%;
+  padding: 8px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+  outline: none;
+  }
+  
+  button[type="submit"] {
+  font-family : '배달의민족 한나체 Pro';
+  width: 80px;
+  height: 70%;
+  padding: 8px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #14CCB8;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+  outline: none;
+  cursor: pointer;
+  }
+  
+  /* main영역 */
+  .button-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  justify-content: center; /* 수평 중앙 정렬 */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 400px;
+  max-height: 600px;
+  margin: 0 auto;
+  border: 0px;
+  }
+  
+  /* 햄버거 피자 치킨 분식 */
+  .button-item { 
+  flex: 1 1 40%;
+  width: 45%;
+  height: 170px;
+  background-color: #14CCB8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  color: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+  padding: 3px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  }
+  
+  .sub-item { 
+  flex: 1 1 40%;
+  width: 45%;
+  height: 170px;
+  background-color: #14CCB8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  color: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+  padding: 3px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  }
+  
+  /*모달 창 디자인*/
+  .modal {
+  display: none; /* 기본적으로 모달창은 보이지 않도록 처리 */
+  position: fixed; /* 화면에 고정 */
+  z-index: 1; /* 모달창을 다른 요소보다 앞에 표시 */
+  left: 0;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4); /* 배경색과 투명도 설정 */
+  }
+  
+  /* 모달창 내용 스타일 */
+  .modal-content {
+  color: black;
+  font-size: 20px;
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border: 3px solid #888;
+  width: 80%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  }
+  /* 모달창 닫기 버튼 스타일 */
+  .close {
+  color: black;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  }
+  
+  .couponPrice{
+  font-size: 30px;
+  }
+  
+  .couponRole{
+  font-size: 20px;
+  margin-top: 5px;
+  }
+  
+  img{
+  width: 100px;
+  }
+  
+  ul{
+  list-style-type: none;
+  }
+  
+  .title1{
+  float: left;
+  }
+  .title2{
+  float: left;
+  }
+  
+  .coupon-container{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      align-content: center;
+  }
+  
+  .coupon-item{
+      height: 100px;
+      margin: 10px;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+  }
+  
+  .footer-container{
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #f3f3f3d3;
+      height: 100%;
+      width: 100%;
+      justify-content: center; /* 가로 중앙 정렬 */
+      align-items: center; /* 세로 중앙 정렬 */
+  }
+  
+  .footer-item{
+      max-width: 600px;
+      font-family: 맑은고딕;
+      font-weight: bold;
+      font-size: 11px;
+      color: rgb(172, 172, 172);
+      width: 80%;
+      align-items: center;
+      text-align: left;
+  }
