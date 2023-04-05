@@ -4,9 +4,266 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- 외부 css 연결 -->
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+
+    <title>쿠폰의 민족</title>
 </head>
 <body>
-    
+    <!-- header -->
+    <div class="header-container">
+        <div class="space1"></div> <!-- space1 여백 -->
+        <div class="fn1"><h1>쿠폰의 민족</h1></div>
+        <div class="fn2"><h3>배달앱 쿠폰 비교 서비스</h3></div>
+        <div class="item">
+            <div class="search-container"> <!-- 검색창 & 버튼 영역 -->
+                <form>
+                <input type="text" placeholder="🍕프랜차이즈명, 치킨, 햄버거...">
+                <button type="submit">검색</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div class="button-container">
+        <div class="space2"></div> <!-- space1 여백 -->
+        <div class="button-item btn1" id="b1">햄버거🍔 > <br> 최대 5000원</div>
+        <div class="button-item btn2" id="b2">피자🍕 > <br> 최대 5000원</div>
+        <div class="button-item btn3" id="b3">치킨🍗 > <br> 최대 5000원</div>
+        <div class="button-item btn4" id="b4">분식🍜 > <br> 최대 5000원</div>
+        <div class="sub-item" id="b5">준비중...</div>
+        <div class="sub-item" id="b6">준비중...</div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-container">
+        <div class="footer-item">
+            <p>
+                - 쿠폰의 민족은 어떠한 형태로도 수익창출을 하지 않습니다.<br>
+                - 개인정보를 수집하지 않습니다.<br>
+                - email : jaehyunandev@gmail.com
+            </p>
+        </div>
+    </div>
+
+    <!-- 모달창 -->
+	<div id="myModal" class="modal">
+		<!-- 모달창 내용 -->
+		<div class="modal-content">
+			<!-- 모달창 닫기 버튼 -->
+			<span class="close" onclick="closeModal()">❌</span>
+			<!-- 모달창 내용 -->
+			<h2 id="brandName">브랜드명</h2>
+            <div class="coupon-container">
+                <div class="space2"></div> <!-- space1 여백 -->
+                
+                <div class="coupon-item baemin">
+                    <div class="title1"><img src="./image/baemin.png"></div>
+                    <ul class='title2'>
+                        <li class='baeminPrice couponPrice'>정보없음</li>
+                        <li class='baeminMin couponRole'>정보없음</li>
+                    </ul>
+                </div>
+
+                <div class="coupon-item  baeminOne">
+                    <div class="title1"><img src="./image/baeminone.png"></div>
+                    <ul class='title2'>
+                        <li class='baeminOnePrice couponPrice'>정보없음</li>
+                        <li class='baeminOneMin couponRole'>정보없음</li>
+                    </ul>
+                </div>
+
+                <div class="coupon-item  yogiyo">
+                    <div class="title1"><img src="./image/yogiyo.png"></div>
+                    <ul class='title2'>
+                        <li class='yogiyoPrice couponPrice'>정보없음</li>
+                        <li class='yogiyoMin couponRole'>정보없음</li>
+                    </ul>
+                </div>
+            </div>
+		</div>
+	</div>
+
+    <script>
+        //배민 변수
+        var baeminCoupon = 0;
+        var baeminCouponLow = 0;
+
+        //배민1 변수
+        var baeminOneCoupon = 0;
+        var baeminOneCouponLow = 0;
+
+        //요기요 변수
+        var yogiyoCoupon = 0;
+        var yogiyoCouponLow = 0;
+
+        var clickedElement = '';
+        var Modal = document.querySelector(".modal-content"); // 모달 테두리 변경을 위한 모달 선택
+
+        // 제목 클릭 시 홈으로
+        document.querySelector(".fn1").addEventListener("click", reLoad);
+        document.querySelector(".fn2").addEventListener("click", reLoad);
+
+        function reLoad(){
+            location.reload();
+        }
+
+        // 화면 상태 변수
+        var screen = 0;
+
+        // 화면 전환 함수 대상 요소들에 설정
+        var brandEl = document.querySelectorAll('.button-item');
+        brandEl.forEach(button => {
+            button.addEventListener('click', changeMenu);
+        });
+
+        function changeMenu(){ // 프랜차이즈 화면 전환 함수
+            console.log("click");
+            clickedElement = event.target;
+
+            if(clickedElement == document.getElementById("b1")){ // 햄버거 클릭
+                document.querySelector('.btn1').innerHTML = "버거킹";
+                document.querySelector('.btn1').style.backgroundColor = '#E1832F';
+
+                document.querySelector('.btn2').innerHTML = "맥도날드";
+                document.querySelector('.btn2').style.backgroundColor = '#EEDE1F';
+
+                document.querySelector('.btn3').innerHTML = "KFC";
+                document.querySelector('.btn3').style.backgroundColor = '#D52222';
+                
+                document.querySelector('.btn4').innerHTML = "맘스터치";
+                document.querySelector('.btn4').style.backgroundColor = '#8F4D14';
+            } else if(clickedElement == document.getElementById("b2")){ // 피자
+                document.querySelector('.btn1').innerHTML = "교촌치킨";
+                document.querySelector('.btn1').style.backgroundColor = '#E1832F';
+
+                document.querySelector('.btn2').innerHTML = "굽네치킨";
+                document.querySelector('.btn2').style.backgroundColor = '#EEDE1F';
+
+                document.querySelector('.btn3').innerHTML = "멕시카나";
+                document.querySelector('.btn3').style.backgroundColor = '#D52222';
+                
+                document.querySelector('.btn4').innerHTML = "페리나카";
+                document.querySelector('.btn4').style.backgroundColor = '#8F4D14';
+            } else if(clickedElement == document.getElementById("b3")){ // 치킨
+                document.querySelector('.btn1').innerHTML = "피자헛";
+                document.querySelector('.btn1').style.backgroundColor = '#E1832F';
+
+                document.querySelector('.btn2').innerHTML = "미스터피자";
+                document.querySelector('.btn2').style.backgroundColor = '#EEDE1F';
+
+                document.querySelector('.btn3').innerHTML = "피자마루";
+                document.querySelector('.btn3').style.backgroundColor = '#D52222';
+                
+                document.querySelector('.btn4').innerHTML = "도미노피자";
+                document.querySelector('.btn4').style.backgroundColor = '#8F4D14';
+            } else if(clickedElement == document.getElementById("b4")){ // 분식
+                document.querySelector('.btn1').innerHTML = "동대문엽기떡볶이";
+                document.querySelector('.btn1').style.backgroundColor = '#E1832F';
+
+                document.querySelector('.btn2').innerHTML = "죠스떡볶이";
+                document.querySelector('.btn2').style.backgroundColor = '#EEDE1F';
+
+                document.querySelector('.btn3').innerHTML = "이삭토스트";
+                document.querySelector('.btn3').style.backgroundColor = '#D52222';
+                
+                document.querySelector('.btn4').innerHTML = "명인만두";
+                document.querySelector('.btn4').style.backgroundColor = '#8F4D14';
+            }
+            brandEl.forEach(button => {
+                button.removeEventListener('click', changeMenu);
+            });
+            screen = 1;
+            // 모달 창 함수 활성화
+            brandEl.forEach(button => {
+                button.addEventListener('click', viewCouponPage);
+            });
+        }
+
+        function viewCouponPage(){
+            if(screen == 1){ // 화면상태가 1이면 모달창 활성화
+                var clickedBrand = event.target;
+                openModal(); // 모달창
+                var selBrand = document.getElementById("brandName");
+                selBrand.innerHTML = clickedBrand.innerHTML;
+                Modal.style.borderColor = clickedBrand.style.backgroundColor;
+                // 프랜차이즈 별로 변수 값 수정 및 전달
+                if(clickedBrand == document.querySelector('.btn1')){ // 버거킹
+                    let arr = bugerking;
+                    for(let i = 0; i<6; i++){
+                        document.querySelector(bugerClassArray[i]).innerHTML = arr[i];
+                    }
+                } else if(clickedBrand == document.querySelector('.btn2')){ // 맥도날드
+                    let arr = mack;
+                    for(let i = 0; i<6; i++){
+                        document.querySelector(bugerClassArray[i]).innerHTML = arr[i];
+                    }
+                } else if(clickedBrand == document.querySelector('.btn3')){ // KFC
+                    let arr = kfc;
+                    for(let i = 0; i<6; i++){
+                        document.querySelector(bugerClassArray[i]).innerHTML = arr[i];
+                    }
+                } else if(clickedBrand == document.querySelector('.btn4')){ // 맘스터치
+                    let arr = mams;
+                    for(let i = 0; i<6; i++){
+                        document.querySelector(bugerClassArray[i]).innerHTML = arr[i];
+                    }
+                } else if(clickedBrand == document.querySelector('.btn5')){ // 맘스터치
+                    let arr = no1;
+                    for(let i = 0; i<6; i++){
+                        document.querySelector(bugerClassArray[i]).innerHTML = arr[i];
+                    }
+                } else if(clickedBrand == document.querySelector('.btn6')){ // 맘스터치
+                    let arr = no2;
+                    for(let i = 0; i<6; i++){
+                        document.querySelector(bugerClassArray[i]).innerHTML = arr[i];
+                    }
+                }
+            }
+        }
+
+        // 모달창 열기
+		function openModal() {
+			document.getElementById("myModal").style.display = "block";
+		}
+
+		// 모달창 닫기
+		function closeModal() {
+			document.getElementById("myModal").style.display = "none";
+		}
+
+        // 햄버거 브랜드 class 배열화
+        let bugerClassArray = [".baeminPrice", ".baeminMin", ".baeminOnePrice", ".baeminOneMin", ".yogiyoPrice", ".yogiyoMin"];
+
+        // 브랜드별 변수들
+        // 햄버거
+        var bugerking = ["정보없음","정보없음","3000원","15000원 이상","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var mack = ["정보없음","정보없음","정보없음","정보없음","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var kfc = ["정보없음","정보없음","정보없음","정보없음","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var mams = ["정보없음","정보없음","정보없음","정보없음","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+
+        // 피자
+        var p1 = ["정보없음","정보없음","3000원","15000원 이상","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var p2 = ["정보없음","정보없음","정보없음","정보없음","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var p3 = ["정보없음","정보없음","정보없음","정보없음","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var p4 = ["정보없음","정보없음","정보없음","정보없음","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+
+        // 치킨
+        var ck1 = ["정보없음","정보없음","3000원","15000원 이상","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var ck2 = ["정보없음","정보없음","정보없음","정보없음","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var ck3 = ["정보없음","정보없음","정보없음","정보없음","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var ck4 = ["정보없음","정보없음","정보없음","정보없음","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+
+        // 분식
+        var bn1 = ["정보없음","정보없음","3000원","15000원 이상","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var bn2 = ["정보없음","정보없음","정보없음","정보없음","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var bn3 = ["정보없음","정보없음","정보없음","정보없음","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var bn4 = ["정보없음","정보없음","정보없음","정보없음","정보없음","정보없음"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+
+        var no1 = ["준비중","준비중","준비중","준비중","준비중","준비중"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+        var no2 = ["준비중","준비중","준비중","준비중","준비중","준비중"]; // [배민가격, 배민MIN, 배민One, 배민OneMIN, 요기요가격, 요기요Min]
+
+    </script>
 </body>
 </html>
