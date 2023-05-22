@@ -6,4 +6,4 @@
 - 🔗[쿠폰의 민족 깃허브 페이지 링크](https://jaehyundev.github.io/couponminjok/)
 ##### _서비스 스크린샷_
 ***
-![](couponminjok/Screenshot.png)
+![](/Screenshot.png)
