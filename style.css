@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'BMHANNAPro';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body * {
+    font-family: 'BMHANNAPro';
+}
+
 /* 상단부분 컨테이너 */
 .header-container{
   display: flex; /* Flexbox 컨테이너로 설정 */
@@ -48,7 +59,6 @@
   padding: 0;
   color: white;
   text-align: center;
-  font-family : '배달의민족 한나체 Pro';
   }
   
   /* 검색창 */
@@ -67,7 +77,6 @@
   }
   
   input[type="text"] {
-  font-family : '배달의민족 한나체 Pro';
   width: 220px;
   height: 70%;
   padding: 8px;
@@ -79,7 +88,6 @@
   }
   
   button[type="submit"] {
-  font-family : '배달의민족 한나체 Pro';
   width: 80px;
   height: 70%;
   padding: 8px;
